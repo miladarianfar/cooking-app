@@ -1,5 +1,6 @@
 import './Home.css';
 import { useFetch } from '../../hooks/useFetch'
+import RecipeList from '../../components/RecipeList';
 
 export default function Home() {
 
@@ -9,9 +10,7 @@ export default function Home() {
         <div className="home">
             {error && <div className="error">{error.message}</div>}
             {isPending && <div className="loader">is Loading...</div>}
-            {recipes && recipes.map(recipe => (
-                <h2 key={recipe.id}>{recipe.title}</h2>
-            ))}
+            {recipes && <RecipeList recipes={recipes} />}
         </div>
     )
 }
